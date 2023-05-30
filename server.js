@@ -1,4 +1,5 @@
 const express = require("express");
+const app = express();
 const bots = require("./src/botsData");
 const shuffle = require("./src/shuffle");
 
@@ -13,9 +14,9 @@ var rollbar = new Rollbar({
 // record a generic message and send it to Rollbar
 rollbar.log('Hello world!')
 
-const app = express();
+// const app = express();
 
-app.use(express.static('public'));
+app.use(express.static(`${__dirname}/public`));
 app.use(express.json());
 
 const playerRecord = {
